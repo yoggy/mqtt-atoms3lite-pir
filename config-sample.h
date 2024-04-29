@@ -9,4 +9,4 @@ const bool mqtt_use_auth   = false;
 const char *mqtt_username  = "username";
 const char *mqtt_password  = "password";
 
-const char *mqtt_publish_topic = "piecake/pir/0";
+const char *mqtt_publish_topic = "room/pir/0";
