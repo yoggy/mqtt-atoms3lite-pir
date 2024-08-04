@@ -97,8 +97,10 @@ void reboot() {
   Serial.println("REBOOT!!!!!");
   for (int i = 0; i < 30; ++i) {
     button_led.setPixelColor(0, button_led.Color(255, 0, 255));
+    button_led.show();
     delay(100);
     button_led.setPixelColor(0, button_led.Color(0, 0, 0));
+    button_led.show();
     delay(100);
   }
 
@@ -126,6 +128,12 @@ void loop() {
     snprintf(buf, 256, "{\"time\":\"%04d-%02d-%02d %02d:%02d:%02d\"}", t.tm_year+1900, t.tm_mon+1, t.tm_mday, t.tm_hour, t.tm_min, t.tm_sec);
     Serial.println(buf);
     mqtt_client.publish(mqtt_publish_topic, buf);
+
+    button_led.setPixelColor(0, button_led.Color(64, 0, 0));
+    button_led.show();
+    delay(1000);
+    button_led.setPixelColor(0, button_led.Color(0, 10, 0));
+    button_led.show();
   }
   last_val = val;
 
